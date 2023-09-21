@@ -73,26 +73,29 @@
 
 2. Clone the repo
 ```sh
-    git clone https://github.com/IsmoilObidov/LaravelShop.git
+git clone https://github.com/IsmoilObidov/LaravelShop.git
 ```
 
 3. Установить Пакеты
 
-  ```JS
-      composer install
-  ```
-4. Установить json файл в своем workspace в postman 
+```JS
+composer install
+```
+4. Установить Laravel Shopping.postman_collection.json файл в своем workspace в postman 
 
 ## Usage
 
 Установить настройки 
-* php artisan migrate --seed
+```JS
+php artisan migrate --seed
+```
 
-admin
+
+## admin
           Username: admin
           Password: reteryut10
 
-user
+## user
          Username: user
          Password: reteryut10
 
