@@ -1,0 +1,473 @@
+{
+	"info": {
+		"_postman_id": "bbce226b-376c-4c84-95d2-0325a11cb3f4",
+		"name": "Laravel Shopping",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26541050"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "reteryut10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}/login",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "view_products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/product",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store_product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|pgImBF7L1GvEQgBVAiCDZSCFzOhSqI1cu8i8eKsdf3bec351",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Ветровка",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "12000",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/w/Pictures/Screenshot (2).png"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "payment_type",
+									"value": "1",
+									"description": "если 0 то нет в наличии, если 1 то есть",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}/product",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|pgImBF7L1GvEQgBVAiCDZSCFzOhSqI1cu8i8eKsdf3bec351",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Брюки",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "100001",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "212",
+									"type": "text"
+								},
+								{
+									"key": "payment_type",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}/product/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"product",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|pgImBF7L1GvEQgBVAiCDZSCFzOhSqI1cu8i8eKsdf3bec351",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{local}}/product/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"product",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "basket",
+			"item": [
+				{
+					"name": "get purchases",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|pgImBF7L1GvEQgBVAiCDZSCFzOhSqI1cu8i8eKsdf3bec351",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{local}}/basket",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"basket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "purchase",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|pgImBF7L1GvEQgBVAiCDZSCFzOhSqI1cu8i8eKsdf3bec351",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}/basket",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"basket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove purchase",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|pgImBF7L1GvEQgBVAiCDZSCFzOhSqI1cu8i8eKsdf3bec351",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{local}}/basket/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"basket",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "get categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|pgImBF7L1GvEQgBVAiCDZSCFzOhSqI1cu8i8eKsdf3bec351",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{local}}/category",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|pgImBF7L1GvEQgBVAiCDZSCFzOhSqI1cu8i8eKsdf3bec351",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Toga",
+									"type": "text"
+								},
+								{
+									"key": "parent_id",
+									"value": "1",
+									"description": "В документацие написано как работает парент ид ",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}/category",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|pgImBF7L1GvEQgBVAiCDZSCFzOhSqI1cu8i8eKsdf3bec351",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{local}}/category/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"category",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "local",
+			"value": "http://shopping.loc/api"
+		}
+	]
+}

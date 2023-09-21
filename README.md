@@ -1,66 +1,154 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
+<br/>
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <a href="https://github.com/IsmoilObidov/LaravelShop">
+    <img src="https://www.mystoma.ru/blog/wp-content/uploads/2016/09/магазин.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Документация </h3>
+
+  <p align="center">
+    Кратко о том как работает мой проект 
+    <br/>
+    <br/>
+    <a href="https://github.com/IsmoilObidov/LaravelShop"><strong>Explore the docs »</strong></a>
+    <br/>
+    <br/>
+    <a href="https://github.com/IsmoilObidov/LaravelShop">View Demo</a>
+    .
+    <a href="https://github.com/IsmoilObidov/LaravelShop/issues">Report Bug</a>
+    .
+    <a href="https://github.com/IsmoilObidov/LaravelShop/issues">Request Feature</a>
+  </p>
 </p>
 
-## About Laravel
+![Downloads](https://img.shields.io/github/downloads/IsmoilObidov/LaravelShop/total) ![Contributors](https://img.shields.io/github/contributors/IsmoilObidov/LaravelShop?color=dark-green) ![Forks](https://img.shields.io/github/forks/IsmoilObidov/LaravelShop?style=social) ![Stargazers](https://img.shields.io/github/stars/IsmoilObidov/LaravelShop?style=social) ![Issues](https://img.shields.io/github/issues/IsmoilObidov/LaravelShop) ![License](https://img.shields.io/github/license/IsmoilObidov/LaravelShop) 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Table Of Contents
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+* [About the Project](#about-the-project)
+* [Built With](#built-with)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [License](#license)
+* [Authors](#authors)
+* [Acknowledgements](#acknowledgements)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## About The Project
 
-## Learning Laravel
+![Screen Shot](https://avatars.mds.yandex.net/i?id=59251b40ab32fe3686518e95d833ea2912a90f14-9213890-images-thumbs&n=13)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Программа сделано для тестовое задание.
+П/С: только бэкенд часть, можно тестировать в ``POSTMAN`` 
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+У себя содержит раздел :
+* Аутентификации
+* Продукты
+* Корзина 
+* Мульти Категории 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+ 
 
-## Laravel Sponsors
+## Built With
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+* ``PHP - 8.1``
+* ``Laravel - ^10.10``
 
-### Premium Partners
+## Getting Started
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Это пример того, как вы можете дать инструкции по настройке вашего проекта локально.
+Чтобы запустить локальную копию, выполните следующие простые шаги.
+
+### Prerequisites
+
+Это пример того, как составить список вещей, необходимых для использования программного обеспечения, и того, как их установить.
+
+
+### Installation
+
+1.  Установить [Open Server Panel](https://ospanel.io/download/)
+
+
+2. Clone the repo
+```sh
+    git clone https://github.com/IsmoilObidov/LaravelShop.git
+```
+
+3. Установить Пакеты
+
+  ```JS
+      composer install
+  ```
+4. Установить json файл в своем workspace в postman 
+
+## Usage
+
+Установить настройки 
+* php artisan migrate --seed
+
+admin
+          Username: admin
+          Password: reteryut10
+
+user
+         Username: user
+         Password: reteryut10
+
+___________________________________________________
+
+
+`` Остальное по тз `` 
+
+Кратко о том как работает ``  мульти  категория ``  
+
+## Давайте разберёмся
+
+Как работает система мультикатегорий (иерархическая структура категорий), которую мы создали на Laravel.
+
+### Модель и структура БД
+
+В таблице `categories` у нас есть колонка `parent_id`, которая ссылается на тот же `id` в этой же таблице. Это создаёт иерархическую (деревянную) структуру.
+
+1. Если у категории `parent_id` равен `NULL`, это означает, что данная категория является основной (родительской) категорией.
+2. Если у категории `parent_id` имеет значение (например, 5), это означает, что эта категория является дочерней (подкатегорией) к категории с `id` равным 5.
+
+### Модель Category
+
+Внутри модели `Category` у нас есть два отношения:
+
+1. `parent()`: Возвращает родительскую категорию для текущей категории (если она существует). Это отношение `belongsTo`, потому что дочерняя категория принадлежит родительской.
+2. `children()`: Возвращает коллекцию дочерних категорий для текущей категории (если они существуют). Это отношение `hasMany`, так как у одной родительской категории может быть множество дочерних категорий.
+
+### Контроллер
+
+1. В методе `create()` мы получаем все основные категории (те, у которых нет родителей) и передаём их в представление. Это позволяет нам выбрать родительскую категорию при создании новой.
+2. В методе `store()` мы сохраняем новую категорию в базу данных. Если был выбран `parent_id`, то новая категория становится дочерней для выбранной родительской категории.
+3. В методе `destroy()` мы просто удаляем категорию. Из-за настроенного внешнего ключа с `onDelete('cascade')` при удалении родительской категории будут автоматически удалены все её дочерние категории.
+
+### Представление
+
+В представлении у нас есть форма для создания новой категории. В этой форме можно выбрать родительскую категорию из выпадающего списка. Если родительская категория не выбрана, новая категория становится основной.
+
+---
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Creating A Pull Request
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Distributed under the MIT License. See [LICENSE](https://github.com/IsmoilObidov/LaravelShop/blob/main/LICENSE.md) for more information.
+
+## Authors
+
+* **ISMOILOBIDOV** - *Science Fiction* - [ISMOILOBIDOV](https://github.com/IsmoilObidov/) - *Built ReadME*

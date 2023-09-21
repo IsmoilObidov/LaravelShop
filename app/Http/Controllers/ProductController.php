@@ -115,11 +115,12 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product, UpdateProductAction $action): JsonResponse
     {
-        $request->validated();
+        $productData = new ProductDTO($request->all());
+        $productData->validate();
 
         try {
 
-            $data = $request->all();
+            $data = $productData->toArray();
 
             $data['photo'] = $request->file('photo');
 

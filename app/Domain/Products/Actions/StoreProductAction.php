@@ -5,6 +5,7 @@ namespace App\Domain\Products\Actions;
 use App\Domain\Products\DTO\StoreProductDTO;
 use App\Domain\Products\Models\Product;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class StoreProductAction
@@ -16,21 +17,26 @@ class StoreProductAction
      */
     public function execute(StoreProductDTO $dto): Product
     {
+
         DB::beginTransaction();
         try {
-            $product = new Product();
-            $product->name = $dto->getName();
-            $product->price = $dto->getPrice();
+            if (Auth::user()->name == 'admin') {
+                $product = new Product();
+                $product->name = $dto->getName();
+                $product->price = $dto->getPrice();
 
-            // Handle photo storage
-            if ($dto->getPhoto()) {
-                $photoPath = $dto->getPhoto()->store('products/photos', 'public');
-                $product->photo = $photoPath;
+                // Handle photo storage
+                if ($dto->getPhoto()) {
+                    $photoPath = $dto->getPhoto()->store('products/photos', 'public');
+                    $product->photo = $photoPath;
+                }
+
+                $product->description = $dto->getDescription();
+                $product->payment_type = $dto->getPaymentType();
+                $product->save();
+            } else {
+                throw new Exception("Access only for admin", 1);
             }
-
-            $product->description = $dto->getDescription();
-            $product->payment_type = $dto->getPaymentType();
-            $product->save();
         } catch (Exception $exception) {
             DB::rollBack();
             throw $exception;

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BasketController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
@@ -29,6 +30,7 @@ Route::post('/login', [Controller::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::resource('/product', ProductController::class)->except(['index']);
     Route::resource('/basket', BasketController::class);
+    Route::resource('/category', CategoryController::class);
 });
 
 Route::resource('/product', ProductController::class)->only(['index']);
