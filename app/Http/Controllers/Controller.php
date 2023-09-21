@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\LoginRequest;
+use App\DTOs\LoginDTO;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,12 +14,13 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    public function login(LoginRequest $req)
+    public function login(Request $req)
     {
 
-        $credentials = $req->validated();
+        $credentials = new LoginDTO($req->all());
+        $credentials->validate();
 
-        if (!Auth::attempt($credentials)) {
+        if (!Auth::attempt($credentials->toArray())) {
             return response()->json([
                 'status' => false,
                 'message' => 'Your password is incorrect'

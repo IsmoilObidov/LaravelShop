@@ -6,10 +6,11 @@ use App\Domain\Baskets\Actions\StoreBasketAction;
 use App\Domain\Baskets\DTO\StoreBasketDTO;
 use App\Domain\Baskets\Models\Basket;
 use App\Domain\Baskets\Repositories\BasketRepository;
-use App\Http\Requests\BasketRequest;
+use App\DTOs\BasketDTO;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BasketController extends Controller
 {
@@ -45,14 +46,15 @@ class BasketController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param BasketRequest $request
+     * @param Request $request
      * @param StorePayAction $action
      * @return JsonResponse
      */
-    public function store(BasketRequest $request, StoreBasketAction $action): JsonResponse
+    public function store(Request $request, StoreBasketAction $action): JsonResponse
     {
         try {
-            $request->validated();
+            $basketData = new BasketDTO($request->all());
+            $basketData->validate();
         } catch (\Illuminate\Validation\ValidationException $validate) {
             return response()->json([
                 'success' => false,
@@ -61,17 +63,27 @@ class BasketController extends Controller
             ]);
         }
 
+
         try {
+            if (!Basket::where('product_id', $basketData->toArray()['product_id'])->where('user_id', Auth::id())->first()) {
 
-            $dto = StoreBasketDTO::fromArray($request->all());
+                $dto = StoreBasketDTO::fromArray($basketData->toArray());
 
-            $response = $action->execute($dto);
-            return response()
-                ->json([
-                    'status' => true,
-                    'message' => 'Data created successfully.',
-                    'data' => $response
-                ]);
+                $response = $action->execute($dto);
+
+                return response()
+                    ->json([
+                        'status' => true,
+                        'message' => 'Data created successfully.',
+                        'data' => $response
+                    ]);
+            } else {
+                return response()
+                    ->json([
+                        'status' => true,
+                        'message' => 'Data exists.'
+                    ]);
+            }
         } catch (Exception $exception) {
             return response()
                 ->json([

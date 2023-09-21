@@ -9,6 +9,7 @@ use App\Domain\Products\DTO\StoreProductDTO;
 use App\Domain\Products\DTO\UpdateProductDTO;
 use App\Domain\Products\Models\Product;
 use App\Domain\Products\Repositories\ProductRepository;
+use App\DTOs\ProductDTO;
 use App\Http\Requests\ProductRequest;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -49,14 +50,15 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param ProductRequest $request
+     * @param Request $request
      * @param StoreProductAction $action
      * @return JsonResponse
      */
-    public function store(ProductRequest $request, StoreProductAction $action): JsonResponse
+    public function store(Request $request, StoreProductAction $action): JsonResponse
     {
         try {
-            $request->validated();
+            $productData = new ProductDTO($request->all());
+            $productData->validate();
         } catch (\Illuminate\Validation\ValidationException $validate) {
             return response()->json([
                 'success' => false,
@@ -67,9 +69,7 @@ class ProductController extends Controller
 
         try {
 
-            $data = $request->all();
-
-            $data['photo'] = $request->file('photo');
+            $data = $productData->toArray();
 
             $dto = StoreProductDTO::fromArray($data);
 
@@ -113,7 +113,7 @@ class ProductController extends Controller
      * @param UpdateProductAction $action
      * @return JsonResponse
      */
-    public function update(ProductRequest $request, Product $product, UpdateProductAction $action): JsonResponse
+    public function update(Request $request, Product $product, UpdateProductAction $action): JsonResponse
     {
         $request->validated();
 
@@ -124,6 +124,10 @@ class ProductController extends Controller
             $data['photo'] = $request->file('photo');
 
             $data['product'] = $product;
+
+            $productData = new ProductDTO($data);
+
+            $productData->validate();
 
             $dto = UpdateProductDTO::fromArray($data);
 
